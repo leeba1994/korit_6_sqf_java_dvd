@@ -1,5 +1,10 @@
 package com.study.dvd.main;
 
+import com.study.dvd.dao.DVDDao;
+import com.study.dvd.entity.DVD;
+import com.study.dvd.views.DVDAddView;
+
+import java.util.List;
 import java.util.Scanner;
 
 public class DVDApplication {
@@ -17,9 +22,10 @@ public class DVDApplication {
             String selectedMenu = scanner.nextLine();
 
             if("1".equals(selectedMenu)) {
-
+                DVDAddView.show();
             } else if("2".equals(selectedMenu)) {
-
+                List<DVD> dvdList = DVDDao.findAll(30);
+                dvdList.forEach(dvd -> System.out.println(dvd));
             } else if("3".equals(selectedMenu)) {
 
             } else if("4".equals(selectedMenu)) {
